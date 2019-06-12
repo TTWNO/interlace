@@ -1,3 +1,5 @@
+# remove compiled project from git tracking
+interlace
 # Prerequisites
 *.d
 
