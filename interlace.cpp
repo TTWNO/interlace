@@ -4,8 +4,8 @@
 #include "interlace.h"
 
 std::vector<std::string> get_file_contents_as_vector_lines(std::string filename, bool ignore_newlines){
-    std::vector<std::string> contents;
-    std::string line;
+    std::vector<std::string> contents = {};
+    std::string line = "";
     std::ifstream ifile(filename, std::ios::in);
 
     if (ifile.is_open()){
@@ -22,7 +22,7 @@ std::vector<std::string> get_file_contents_as_vector_lines(std::string filename,
 }
 
 std::string get_file_contents(std::string filename){
-	std::string result;
+	std::string result = "";
     std::string line;
     std::ifstream ifile(filename, std::ios::in);
 
@@ -39,20 +39,9 @@ std::string get_file_contents(std::string filename){
     return result;
 }
 
-std::string concat(std::vector<std::string> list, std::string seperator){
-    std::string result;
-    for (int i = 0; i < list.size(); i++){
-        result += list.at(i);
-        if (i < list.size()-1){
-            result += seperator;
-        }
-    }
-    return result;
-}
-
 std::vector<std::string> interlace_vectors(std::vector<std::vector<std::string>> vectors){
 	int max_vector_items = 0;
-	std::vector<std::string> result;
+	std::vector<std::string> result = {};
 	// finds longest series in each vector
 	for (auto vi : vectors){
 		int vi_size = vi.size();
@@ -81,7 +70,7 @@ std::string interlace(std::vector<std::string> filenames, std::string file_seper
     int num_of_lines;
     std::string this_line;
     std::string result = "";
-    std::vector<std::vector<std::string>> files_contents;
+    std::vector<std::vector<std::string>> files_contents = {};
     for (auto file : filenames){
         std::vector<std::string> file_contents = get_file_contents_as_vector_lines(file);
         files_contents.push_back(file_contents);
