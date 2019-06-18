@@ -1,5 +1,6 @@
 # remove compiled project from git tracking
 il
+catch.l
 test
 # Prerequisites
 *.d
