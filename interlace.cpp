@@ -3,6 +3,7 @@
 #include <iostream>
 #include "interlace.h"
 
+
 std::vector<std::string> get_file_contents_as_vector_lines(std::string filename, bool ignore_newlines){
     std::vector<std::string> contents;
     std::string line;

@@ -4,7 +4,7 @@ interlace.o:
 	g++ -O2 -c -o interlace.o interlace.cpp
 
 build:
-	g++ -O2 -o il interlace.o main.cpp
+	g++ -std=c++17 -O2 -o il interlace.o main.cpp
 
 catch.o:
 	g++ -O2 -c -o catch.o tests_catch.cpp
