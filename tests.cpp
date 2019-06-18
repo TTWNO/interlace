@@ -31,3 +31,7 @@ TEST_CASE("Test that the interlace function works with default paramaters, 2 fil
     CHECK(interlace({"txt/1-3.txt", "txt/4-6.txt", "txt/7-9.txt"}) == get_file_contents("txt/1-9.txt"));
     CHECK(interlace({"txt/longer_output.txt", "txt/longer_output_2.txt"}) == get_file_contents("txt/longer_output_ild.txt"));
 } 
+
+TEST_CASE("Test that the interlace function options work, like setting the delimiter", "[interlace]"){
+    CHECK(interlace({"txt/longer_output.txt", "txt/longer_output_2.txt"}, " ") == get_file_contents("txt/longer_output_ild2.txt"));
+}

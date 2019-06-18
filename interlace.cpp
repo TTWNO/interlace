@@ -65,8 +65,8 @@ std::vector<std::string> interlace_vectors(std::vector<std::vector<std::string>>
 }
 
 std::string interlace(std::vector<std::string> filenames, std::string file_seperator, std::string line_seperator, bool strip_newlines){
-    int max_lines = 0;
-    int num_of_lines;
+    int max_lines;
+    int line_num = 0;
     std::string this_line;
     std::string result = "";
     std::vector<std::vector<std::string>> files_contents = {};
@@ -74,9 +74,17 @@ std::string interlace(std::vector<std::string> filenames, std::string file_seper
         std::vector<std::string> file_contents = get_file_contents_as_vector_lines(file);
         files_contents.push_back(file_contents);
     }
+    max_lines = files_contents.size();
 	std::vector<std::string> lines = interlace_vectors(files_contents);
 	for (int i = 0; i < lines.size(); i++){
-		result += lines.at(i) + "\n";
+		result += lines.at(i);
+        if (line_num != 0 && (line_num % max_lines) == 0){
+            std::cout << line_num << " % " << max_lines << " == 0" << std::endl;
+            result += line_seperator;
+        } else {
+            result += file_seperator;
+        }
+        line_num++;
 	}
 	// remove traling newline
 	result[result.length()-1] = '\0';
