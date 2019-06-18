@@ -1,0 +1,4 @@
+Please enter a name:
+Please enter a country:
+Harvey Wallbanger is from Canada
+He is a Canucker!
