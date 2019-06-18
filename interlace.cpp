@@ -11,9 +11,7 @@ std::vector<std::string> get_file_contents_as_vector_lines(std::string filename,
 
     if (ifile.is_open()){
         while (getline(ifile, line)){
-            if (ignore_newlines && line != ""){
-                contents.push_back(line);
-            }
+            contents.push_back(line);
         }
         ifile.close();
     } else {
@@ -28,7 +26,7 @@ std::string get_file_contents(std::string filename){
     std::ifstream ifile(filename, std::ios::in);
 
     if (ifile.is_open()){
-        while (getline(ifile, line) && line != ""){
+        while (getline(ifile, line)){
             result += line;
             result += "\n";
         }
