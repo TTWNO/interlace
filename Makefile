@@ -3,8 +3,8 @@ default: build
 interlace.o:
 	g++ -O2 -c -o interlace.o interlace.cpp
 
-build:
-	g++ -std=c++17 -O2 -o il interlace.o main.cpp
+build: interlace.o
+	g++ -std=c++17 -O2 -o il interlace.o main.cpp -lstdc++fs
 
 catch.o:
 	g++ -O2 -c -o catch.o tests_catch.cpp
