@@ -28,7 +28,7 @@ int main(int argc, char** argv){
 
 	// TODO: add code for stdin input option
 	if (pipeFromStdIn){
-
+        filenames.insert(filenames.begin(), "/dev/stdin");
 	}
 
 	result_of_interlace = interlace(filenames);
